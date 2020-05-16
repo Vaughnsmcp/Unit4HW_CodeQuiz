@@ -90,20 +90,7 @@ $(document).ready(function() {
         window.location.href = "highscore.html"
        
     }
-    // function createHighScoreList(){
-    //     console.log("grab high score")
-    //     const highScore = JSON.parse(window.localStorage.getItem("highScore")) || []
-    //      // <li class="list-group-item">Cras justo odio</li>
-    //      highScore.map(({score,name})=>{
-    //         const listEl = document.createElement("li")
-    //         listEl.classList.add("list-group-item")
-    //         listEl.innerHTML = `${name} - ${score}`
-    //         document.getElementById("highScoreList").appendChild(listEl)
-
-
-    //      })
-        
-    // }
+   
     function quizOver() {
         stopTimer();
         mainEl.innerHTML = "";
@@ -125,7 +112,7 @@ $(document).ready(function() {
         buttonDiv.classList.add("input-group-append");
         buttonDiv.append(submitButton);
 
-        // const inputField = document.createElement("input");
+        
         inputField.setAttribute("type", "text");
         inputField.setAttribute("class", "form-control");
         inputField.setAttribute("placeholder", "");
@@ -139,5 +126,5 @@ $(document).ready(function() {
     }
 
     startEl.onclick = startQuiz;
-    // createHighScoreList()
+   
 });

@@ -11,9 +11,9 @@ const questions = [{
     {
         title: "WHAT... is your quest?",
         choices: [
-            "I'm off to see the wizzard",
+            "I'm off to see the wizard",
             "To seek the Holy Grail",
-            "Nitzche said what's the point anyway",
+            "Nietzsche said what's the point anyway",
             "Oprah, 'cuz I need a new car",
 
         ],
@@ -44,8 +44,8 @@ const questions = [{
             "11 meters/second.",
             "24 MPH",
             "African or European?",
-            "yep"
+            "Ummm..."
         ],
-        answer: "yep"
+        answer: "Ummm..."
     }
 ];
