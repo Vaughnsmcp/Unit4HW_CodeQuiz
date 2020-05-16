@@ -6,10 +6,10 @@ $(document).ready(function() {
     const titleEl = document.getElementById("questionTitle");
     const choicesEl = document.getElementById("questionChoices");
     const mainEl = document.getElementById("main");
-    const time = questions.length * 15;
-    const questionIndex = 0;
-    const timeId;
-
+    let time = questions.length * 15;
+    let questionIndex = 0;
+    let timeId;
+    const inputField = document.createElement("input");
     function clockTick() {
         --time;
         timerEl.innerHTML = time;
@@ -44,7 +44,7 @@ $(document).ready(function() {
 
         choicesEl.innerHTML = "";
         const choices = currentQuestion.choices;
-        for (const i = 0; i < choices.length; i++) {
+        for (let i = 0; i < choices.length; i++) {
             const choicesButton = document.createElement("button");
             choicesButton.innerText = choices[i];
             choicesButton.onclick = checkChoice;
@@ -76,8 +76,34 @@ $(document).ready(function() {
     }
 
 
-    function storeScore() {}
+    function storeScore() {
+        const initials = inputField.value
 
+        const highScore = JSON.parse(window.localStorage.getItem("highScore")) || []
+
+        const score = {
+            name: initials, score: timerEl.innerHTML
+
+        }
+        highScore.push(score)
+        window.localStorage.setItem("highScore",JSON.stringify(highScore));
+        window.location.href = "highscore.html"
+       
+    }
+    // function createHighScoreList(){
+    //     console.log("grab high score")
+    //     const highScore = JSON.parse(window.localStorage.getItem("highScore")) || []
+    //      // <li class="list-group-item">Cras justo odio</li>
+    //      highScore.map(({score,name})=>{
+    //         const listEl = document.createElement("li")
+    //         listEl.classList.add("list-group-item")
+    //         listEl.innerHTML = `${name} - ${score}`
+    //         document.getElementById("highScoreList").appendChild(listEl)
+
+
+    //      })
+        
+    // }
     function quizOver() {
         stopTimer();
         mainEl.innerHTML = "";
@@ -93,12 +119,13 @@ $(document).ready(function() {
 
         const submitButton = document.createElement("button");
         submitButton.innerHTML = "Submit";
+        submitButton.onclick = storeScore;
 
         const buttonDiv = document.createElement("div");
         buttonDiv.classList.add("input-group-append");
         buttonDiv.append(submitButton);
 
-        const inputField = document.createElement("input");
+        // const inputField = document.createElement("input");
         inputField.setAttribute("type", "text");
         inputField.setAttribute("class", "form-control");
         inputField.setAttribute("placeholder", "");
@@ -112,4 +139,5 @@ $(document).ready(function() {
     }
 
     startEl.onclick = startQuiz;
+    // createHighScoreList()
 });
