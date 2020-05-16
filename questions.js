@@ -44,8 +44,8 @@ const questions = [{
             "11 meters/second.",
             "24 MPH",
             "African or European?",
-            "All of the above"
+            "yep"
         ],
-        answer: "All of the above"
+        answer: "yep"
     }
 ];
