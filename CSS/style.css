@@ -1,0 +1,23 @@
+.header {
+    padding: 10px 16px;
+    background: rgb(2, 1, 1);
+    color: #646161;
+    text-align: center;
+}
+
+;
+#potato {
+    display: flex;
+    justify-content: space-between;
+}
+
+#timer,
+#highscores {
+    margin: 10px;
+}
+
+.h1 {
+    text-align: center;
+}
+
+;
